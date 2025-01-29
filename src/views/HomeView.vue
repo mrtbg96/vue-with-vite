@@ -1,20 +1,13 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-import { ref, onMounted } from 'vue'
+import { useFlash } from '@/composables/useFlash'
 
-let message = ref('')
-
-onMounted(() => alert('Hello, world!'))
-
-setTimeout(() => {
-  message.value = 'Lorem ipsum dolar sit amet consectetur.'
-}, 5000)
+let { flash } = useFlash()
 </script>
 
 <template>
   <main>
-    <h1>{{ message }}</h1>
-
-    <TheWelcome />
+    <div>
+      <button @click="flash('Information', 'Home', 'info')">Learn the page</button>
+    </div>
   </main>
 </template>
